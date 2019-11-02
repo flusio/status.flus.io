@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0" />
+        <link rel="stylesheet" href="{{ SITE_URL }}style.css">
+        <link href="{{ SITE_URL }}feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Articles de {{ SITE_TITLE }}" />
+        <meta name="description" content="Flus est un portail de veille de l’actualité basé sur FreshRSS, un logiciel libre communautaire." />
+        <title>{{ SITE_TITLE }}</title>
+    </head>
+
+    <body class="page page-index">
+        <header>
+            {% if SITE_APP_STATUS == 'up' %}
+                <h1 class="app-status app-status-up">
+                    ✔ <a href="https://flus.io">flus.io</a> est opérationnel
+                </h1>
+            {% else %}
+                <h1 class="app-status app-status-down">
+                    ❌ <a href="https://flus.io">flus.io</a> subit une panne
+                </h1>
+            {% endif %}
+
+            <p class="app-status-info container container-text">
+                Le statut du service n’est pas détecté automatiquement,
+                cette page est donc mise à jour manuellement. Si vous
+                observez une panne qui n’est pas indiquée ici, merci de
+                <a href="mailto:support@flus.io">nous le faire savoir</a>.
+            </p>
+
+            <p>
+                <a class="call-to-action" href="abonnement.html">suivre le statut du service</a>
+            </p>
+        </header>
+
+        <main class="container container-text">
+            <h2>Maintenance planifiée</h2>
+
+            <p class="placeholder">
+                Aucune maintenance n’est prévue pour les prochains jours.
+            </p>
+
+            <h2>Incidents</h2>
+
+            <p class="placeholder">
+                Aucun incident n’est survenu par le passé 😍
+            </p>
+        </main>
+    </body>
+</html>

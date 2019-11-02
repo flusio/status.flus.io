@@ -1,0 +1,10 @@
+url: "https://status.flus.io/"
+title: "Statut de flus.io"
+author: "Marien"
+timezone: "Europe/Paris"
+force_feed: true
+blog_slug: "index"
+app_status: "up"
+
+development:
+    url: "filesystem"
