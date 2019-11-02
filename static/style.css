@@ -251,12 +251,26 @@ a.call-to-action:hover {
     margin-bottom: 5rem;
 }
 
+.page.page-index article h1 {
+    display: inline-block;
+    margin-bottom: .5rem;
+
+    font-size: 1.1rem;
+}
+
+.page.page-index article.article-maintenance {
+    margin-top: 1rem;
+    padding-left: 1rem;
+
+    border-left: 1rem solid var(--secondary-color);
+}
+
 /* Blog articles section */
-article {
+article.blog-article {
     margin-bottom: 8rem;
 }
 
-article header {
+article.blog-article header {
     margin-bottom: 4rem;
 
     text-align: center;

@@ -36,15 +36,60 @@
         <main class="container container-text">
             <h2>Maintenance planifiée</h2>
 
-            <p class="placeholder">
-                Aucune maintenance n’est prévue pour les prochains jours.
-            </p>
+            {% set maintenance_serie = [s for s in SERIES if s.title() == "Maintenance planifiée"][0] %}
+            {% set maintenance_articles = maintenance_serie.meta["ARTICLES"] %}
+            {% set next_maintenances = [a for a in maintenance_articles if a.meta["ARTICLE_STATUS"] == "ongoing"] %}
+
+            {% if len(maintenance_articles) > len(next_maintenances) %}
+                <p>
+                    <a href="{{ maintenance_serie.url() }}">Historique des maintenances</a>
+                </p>
+            {% endif %}
+
+            {% if next_maintenances %}
+                {% for article in next_maintenances %}
+                    <article class="article-maintenance">
+                        <header>
+                            <h1>{{ article.title() }}</h1>
+                            –
+                            <small>
+                                <a href="{{ article.url() }}">permalien</a>
+                            </small>
+                        </header>
+
+                        {{ article.content() }}
+                    </article>
+                {% endfor %}
+            {% else %}
+                <p class="placeholder">
+                    Aucune maintenance n’est prévue pour les prochains jours.
+                </p>
+            {% endif %}
 
             <h2>Incidents</h2>
 
-            <p class="placeholder">
-                Aucun incident n’est survenu par le passé 😍
-            </p>
+            {% set incidents_serie = [s for s in SERIES if s.title() == "Incidents"][0] %}
+            {% set incidents_articles = incidents_serie.meta["ARTICLES"] %}
+
+            {% if incidents_articles %}
+                {% for article in incidents_articles %}
+                    <article class="article-incident">
+                        <header>
+                            <h1>{{ article.title() }}</h1>
+                            –
+                            <small>
+                                annoncé {{ article.date().strftime("le %d %B %Y") }}&nbsp;/&nbsp;<a href="{{ article.url() }}">permalien</a>
+                            </small>
+                        </header>
+
+                        {{ article.content() }}
+                    </article>
+                {% endfor %}
+            {% else %}
+                <p class="placeholder">
+                    Aucun incident n’est survenu par le passé 😍
+                </p>
+            {% endif %}
         </main>
 
         <footer>

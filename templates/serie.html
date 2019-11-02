@@ -4,11 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0" />
         <link rel="stylesheet" href="{{ SITE_URL }}style.css">
+        <link href="{{ FEED.url() }}" type="application/atom+xml" rel="alternate" title="{{ FEED.title() }}" />
         <link href="{{ SITE_URL }}feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Articles de {{ SITE_TITLE }}" />
-        {% if PAGE_DESCRIPTION %}
-            <meta name="description" content="{{ PAGE_DESCRIPTION }}" />
-        {% endif %}
-        <title>{{ PAGE_TITLE }} – {{ SITE_TITLE }}</title>
+        <title>{{ PAGE_TITLE }} — {{ SITE_TITLE }}</title>
     </head>
 
     <body class="page page-article">
@@ -23,6 +21,19 @@
                 </header>
 
                 {{ PAGE_CONTENT }}
+
+                <p>
+                    Historique des maintenances :
+                </p>
+
+                <ul>
+                    {% for article in ARTICLES %}
+                        <li>
+                            <a href="{{ article.url() }}">{{ article.title() }}</a>
+                            (annoncé {{ article.date().strftime("le %d %B %Y") }})
+                        </li>
+                    {% endfor %}
+                </ul>
             </article>
         </main>
     </body>
