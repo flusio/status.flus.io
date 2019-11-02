@@ -232,15 +232,23 @@ a.call-to-action:hover {
     background-color: #2B1693;
 }
 
+/* Page footer section */
+.page > footer {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    text-align: center;
+}
+
 /* Page main section */
 .page > main {
-    min-height: 15rem;
+    min-height: 10rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
 .page.page-index > main {
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
 }
 
 /* Blog articles section */
