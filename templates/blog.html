@@ -70,17 +70,20 @@
 
             {% set incidents_serie = [s for s in SERIES if s.title() == "Incidents"][0] %}
             {% set incidents_articles = incidents_serie.meta["ARTICLES"] %}
+            {% set incidents_articles = sorted(incidents_articles, key=lambda article: article.date(), reverse=True) %}
 
             {% if incidents_articles %}
                 {% for article in incidents_articles %}
                     <article class="article-incident">
                         <header>
                             <h1>{{ article.title() }}</h1>
-                            –
+                        </header>
+
+                        <div>
                             <small>
                                 annoncé {{ article.date().strftime("le %d %B %Y") }}&nbsp;/&nbsp;<a href="{{ article.url() }}">permalien</a>
                             </small>
-                        </header>
+                        </div>
 
                         {{ article.content() }}
                     </article>

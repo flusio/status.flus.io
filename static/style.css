@@ -253,7 +253,7 @@ a.call-to-action:hover {
 
 .page.page-index article h1 {
     display: inline-block;
-    margin-bottom: .5rem;
+    margin-bottom: 0;
 
     font-size: 1.1rem;
 }
@@ -263,6 +263,10 @@ a.call-to-action:hover {
     padding-left: 1rem;
 
     border-left: 1rem solid var(--secondary-color);
+}
+
+.page.page-index article.article-incident {
+    margin-bottom: 2rem;
 }
 
 /* Blog articles section */
