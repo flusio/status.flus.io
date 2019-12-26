@@ -5,6 +5,7 @@ timezone: "Europe/Paris"
 force_feed: true
 blog_slug: "index"
 app_status: "up"
+websub_hub: "https://websub.flus.io/"
 
 development:
     url: "filesystem"

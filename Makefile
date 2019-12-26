@@ -15,6 +15,9 @@ clean: ## Clean site files
 publish: clean  ## Publish the website online (rsync)
 	boop.py
 	rsync -P -rvzc --cvs-exclude --delete -e "ssh -p $(SERVER_PORT)" ./_site/ $(SERVER_DEST)
+	curl -d "hub.mode=publish&hub.topic=https://status.flus.io/feeds/all.atom.xml" -X POST https://websub.flus.io/
+	curl -d "hub.mode=publish&hub.topic=https://status.flus.io/feeds/incidents.atom.xml" -X POST https://websub.flus.io/
+	curl -d "hub.mode=publish&hub.topic=https://status.flus.io/feeds/maintenance.atom.xml" -X POST https://websub.flus.io/
 	rm -rf ./_cache
 
 .PHONY: open
