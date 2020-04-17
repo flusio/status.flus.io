@@ -15,6 +15,10 @@
                 <h1 class="app-status app-status-up">
                     ✔ <a href="https://flus.io">flus.io</a> est opérationnel
                 </h1>
+            {% elif SITE_APP_STATUS == 'maintenance' %}
+                <h1 class="app-status app-status-up">
+                    🦔 <a href="https://flus.io">flus.io</a> est en maintenance
+                </h1>
             {% else %}
                 <h1 class="app-status app-status-down">
                     ❌ <a href="https://flus.io">flus.io</a> subit une panne
